@@ -3,18 +3,25 @@ import RabbitBush from "./RabbitBush.astro";
 ---
 
 <section
-  class="relative top-18 h-[80vh] w-full lg:w-4/5 mx-auto grid grid-cols-3 grid-rows-3 content-center py-8 px-8 items-center"
+  class="relative top-12 h-[80vh] w-full lg:w-4/5 mx-auto grid grid-cols-3 grid-rows-3 content-center gap-y-28 py-8 px-8 items-center"
 >
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
-  <RabbitBush />
+  <RabbitBush id="1" />
+  <RabbitBush id="2" />
+  <RabbitBush id="3" />
+  <RabbitBush id="4" />
+  <RabbitBush id="5" />
+  <RabbitBush id="6" />
+  <RabbitBush id="7" />
+  <RabbitBush id="8" />
+  <RabbitBush id="9" />
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const rabbits = document.querySelectorAll(".rabbits-images");
+    console.log(rabbits);
+  });
+</script>
 
 <style>
   @media (max-width: 768px) {

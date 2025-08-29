@@ -1,8 +1,32 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
 <section class="w-56 relative">
   <img src="/bush.png" alt="Imagen arbusto" class="absolute z-2" />
   <img
     src="/rabbit.png"
     alt="Imagen conejo"
-    class="max-w-full h-24 cursor-pointer relative left-12 top-6"
+    class="max-w-full h-24 cursor-pointer relative left-12 top-6 rabbits-images"
+    id={`rabbit-image${id}`}
   />
 </section>
+
+<style>
+  /* .rabbits-images {
+    animation: rabbitMove 2s normal forwards;
+  } */
+
+  @keyframes rabbitMove {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-90px);
+    }
+  }
+</style>
