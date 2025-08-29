@@ -1,0 +1,79 @@
+---
+import RabbitBush from "./RabbitBush.astro";
+---
+
+<section
+  class="relative top-12 h-[80vh] w-full lg:w-4/5 mx-auto grid grid-cols-3 grid-rows-3 content-center gap-y-28 py-8 px-8 items-center"
+>
+  <RabbitBush id="1" />
+  <RabbitBush id="2" />
+  <RabbitBush id="3" />
+  <RabbitBush id="4" />
+  <RabbitBush id="5" />
+  <RabbitBush id="6" />
+  <RabbitBush id="7" />
+  <RabbitBush id="8" />
+  <RabbitBush id="9" />
+  <audio src="/audio golpe.m4a" class="hidden" id="hit-audio"></audio>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const rabbits = document.querySelectorAll(".rabbits-images");
+
+    function clearAnimations() {
+      rabbits.forEach((rabbit) => {
+        rabbit.classList.remove(
+          "activate-animation1",
+          "activate-animation2",
+          "activate-animation3",
+        );
+      });
+    }
+
+    rabbits.forEach((rabbit) => {
+      rabbit.addEventListener("click", () => {
+        const hitAudio = document.querySelector(
+          "#hit-audio",
+        ) as HTMLAudioElement;
+        hitAudio?.play();
+        clearAnimations();
+      });
+    });
+
+    const MAX_IMAGES = rabbits.length + 1;
+
+    setInterval(() => {
+      clearAnimations();
+
+      const rabbitsWithOutAnimations =
+        document.querySelectorAll(".rabbits-images");
+      const rabbitIdGenerated = Math.floor(
+        Math.random() * (MAX_IMAGES - 1) + 1,
+      );
+
+      const timeAnimation = Math.floor(Math.random() * 3 + 1);
+
+      const rabbitToAnimate = rabbitsWithOutAnimations[
+        rabbitIdGenerated - 1
+      ] as HTMLImageElement;
+
+      rabbitToAnimate.classList.add(`activate-animation${timeAnimation}`);
+    }, 2000);
+  });
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    section {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
