@@ -11,15 +11,23 @@ const { id } = Astro.props;
   <img
     src="/rabbit.png"
     alt="Imagen conejo"
-    class="max-w-full h-24 cursor-pointer relative left-12 top-6 rabbits-images"
+    class="max-w-full h-24 relative left-12 top-6 rabbits-images"
     id={`rabbit-image${id}`}
   />
 </section>
 
 <style>
-  /* .rabbits-images {
-    animation: rabbitMove 2s normal forwards;
-  } */
+  .activate-animation1 {
+    animation: rabbitMove 0.8s normal;
+  }
+
+  .activate-animation2 {
+    animation: rabbitMove 2s normal;
+  }
+
+  .activate-animation3 {
+    animation: rabbitMove 3s normal;
+  }
 
   @keyframes rabbitMove {
     from {
